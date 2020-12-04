@@ -1,0 +1,19 @@
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+
+export class TodoService {
+  constructor(private http: HttpClient) {}
+
+  add(todo): Observable<any> {
+    return this.http.post('...', todo).pipe(map((r) => r));
+  }
+
+  getTodos(): Observable<any> {
+    return this.http.get('...').pipe(map((r) => r));
+  }
+
+  delete(id): Observable<any> {
+    return this.http.delete('...').pipe(map((r) => r));
+  }
+}
